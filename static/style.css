@@ -1,0 +1,29 @@
+
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5%;
+}
+
+
+.galeri {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 40px;
+    
+}
+
+
+.galeri img {
+    width: 50vh;
+}
+
+.test{
+    display: flex;
+    justify-content: center;
+}

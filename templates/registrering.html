@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST" class="test">
+        <label for="navn">Navn</label>
+        <input type="text" id="navn" name="navn">
+
+        <label for="fag">Fag</label>
+        <input type="text" id="navn" name="fag">
+
+        <label for="email">E-post</label>
+        <input type="email" name="email" id="email">
+
+        <label for="alder">Alder</label>
+        <input type="number" name="alder" id="tall">
+
+
+        <label for="kurs">Velg kurs</label>
+
+        <select name="kurs" id="kurs">
+            <option value="python">Python</option>
+            <option value="javasript">JavaSript</option>
+            <option value="flask">Flask</option>
+        </select>
+
+        <button type="submit">Send</button>
+
+    </form>
+
+{% endblock %}
