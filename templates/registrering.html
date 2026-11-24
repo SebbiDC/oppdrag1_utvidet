@@ -1,30 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form method="POST" class="test">
-        <label for="navn">Navn</label>
-        <input type="text" id="navn" name="navn">
+<form action="{{ url_for('lagre_bruker') }}" method="POST" class="lage_bruker">
 
-        <label for="fag">Fag</label>
-        <input type="text" id="navn" name="fag">
+    <div class="registrer">
+        <div id="fornavn">
+        <label for="fornavn">Fornavn</label>
+        <input type="text" id="fornavn" name="fornavn" required>
+        </div>
 
+        <div id="etternavn">
+        <label for="etternavn">Etternavn</label>
+        <input type="text" id="etternavn" name="etternavn" required>
+        </div>
+        
+        <div id="email">
         <label for="email">E-post</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="epost" id="epost" required>    
+        </div>
+        
+        <div id="tlf">
+        <label for="tlf">Tlf:</label>
+        <input type="tel" id="telefon" name="telefon" required>    
+        </div>
+        
 
-        <label for="alder">Alder</label>
-        <input type="number" name="alder" id="tall">
+        <div id="bosted">
+        <label for="bosted">Bosted</label>
+        <input type="text" id="bosted" name="bosted" required>
+        </div>
 
-
-        <label for="kurs">Velg kurs</label>
-
-        <select name="kurs" id="kurs">
-            <option value="python">Python</option>
-            <option value="javasript">JavaSript</option>
-            <option value="flask">Flask</option>
-        </select>
-
-        <button type="submit">Send</button>
-
+        <div id="passord">
+        <label for="passord">Passord (8 tegn)</label>
+        <input type="text" id="passord" name="passord" minlength="8" required>
+        </div>
+        
+        <div id="vert">
+        <label for="vert">Vil du være vert?</label>
+        <input type="checkbox" id="vert" name="vert">    
+        </div>
+        
+        <div id="fav-spill">
+        <label for="spill_id">Spill (Om du er vert)</label>
+        <select name="spill_id" id="spill_id">
+            <option value="">Ikke valgt</option>
+            {% for s in spill %}
+            <option value="{{ s.spill_id }}">{{ s.navn }}</option>
+            {% endfor %}
+        </select>    
+        </div>
+        
+        <div id="send">
+        <button type="submit">Send</button>    
+        </div>
+        
+    </div>
     </form>
 
 {% endblock %}

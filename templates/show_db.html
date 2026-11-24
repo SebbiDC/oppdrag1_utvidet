@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="db">
+
+    <h2>Brukere</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>E-post</th>
+            <th>Telefon</th>
+            <th>Bosted</th>
+            <th>Vert</th>
+        </tr>
+        {% for b in brukere %}
+        <tr>
+            <td>{{ b.bruker_id }}</td>
+            <td>{{ b.fornavn }} {{ b.etternavn }}</td>
+            <td>{{ b.epost }}</td>
+            <td>{{ b.telefon }}</td>
+            <td>{{ b.bosted }}</td>
+            <td>{{ "Ja" if b.vert else "Nei" }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">Ingen brukere ennå.</td></tr>
+        {% endfor %}
+    </table>
+
+    <h2>Brettspill</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+            <th>Spillere</th>
+        </tr>
+        {% for s in spill %}
+        <tr>
+            <td>{{ s.spill_id }}</td>
+            <td>{{ s.navn }}</td>
+            <td>{{ s.spillere }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3">Ingen spill ennå.</td></tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}
